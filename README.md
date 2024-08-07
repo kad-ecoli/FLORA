@@ -22,3 +22,9 @@ Run FLORA :
 ```
 ./FLORA.py input.fasta input.pdb output.pdb
 ```
+
+To specify secondary structure in dot-bracket format:
+```
+./FLORA input.fasta input.pdb output.pdb input.dbn 3
+```
+Here, input.dbn should have only one line, where unpaired nucleotides are represented by '.', while paired nucleotides are represented by '(' or ')'.
