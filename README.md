@@ -1,4 +1,9 @@
+# FLORA: Full-atomic Loop Modeling of RNA #
+
+Reconstruct missing nucleotides in the input RNA 3D structure.
+
 ## Installation ##
+
 ```
 make FLORA
 
@@ -22,6 +27,7 @@ Run FLORA :
 ```
 ./FLORA.py input.fasta input.pdb output.pdb
 ```
+Here, `input.fasta` is the FASTA format RNA sequence in lower case. `input.pdb` is the PDB format with missing nucleotides; the residue sequence number of `input.pdb` should be consistent with `input.fasta`. `input.pdb` can have missing atoms. `output.pdb` is the final full atomic model.
 
 To specify secondary structure in dot-bracket format:
 ```
