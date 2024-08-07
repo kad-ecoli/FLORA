@@ -1,20 +1,24 @@
-In the new folder, compile with g++:
+## Installation ##
 ```
-cd FLORA
 make FLORA
+
+cd CSSR
+make CSSR
+cd ..
+
+cd ViennaRNA
+./configure --without-svm --without-swig --without-perl --without-python --without-doc-pdf --without-doc-html --without-doc --without-tutorial-pdf --without-tutorial --without-cla-pdf --without-cla --without-check --without-kinfold --without-forester --without-rnalocmin --without-rnaxplorer
+make
 ```
 
-## Usage
+## Usage ##
 
 To see the help menu:
 ```
-./FLORA
+./FLORA.py
 ```
 
 Run FLORA :
 ```
-./FLORA sequence.fasta input.pdb output.pdb pair.dbn [option] [tolerance]
+./FLORA.py input.fasta input.pdb output.pdb
 ```
-
-
-
