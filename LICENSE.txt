@@ -19,3 +19,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 The FLORA package contains a copy of ViennaRNA 2.6.4, whose license is at ViennaRNA/COPYING
+The FLORA package contains a copy of DFIRE_RNA at dfire_rna/.

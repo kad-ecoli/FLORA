@@ -14,6 +14,11 @@ cd ..
 cd ViennaRNA
 ./configure --without-svm --without-swig --without-perl --without-python --without-doc-pdf --without-doc-html --without-doc --without-tutorial-pdf --without-tutorial --without-cla-pdf --without-cla --without-check --without-kinfold --without-forester --without-rnalocmin --without-rnaxplorer
 make
+cd ..
+
+cd dfire_rna
+make
+cd ..
 ```
 
 ## Usage ##
