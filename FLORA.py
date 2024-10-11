@@ -15,6 +15,7 @@ import subprocess
 from math import pi, sqrt, acos
 
 rootdir=os.path.dirname(os.path.abspath(__file__))
+os.environ['DFIRE_RNA_HOME']=os.path.join(rootdir,"dfire_rna")
 
 def System(cmd):
     print(cmd)
@@ -54,8 +55,21 @@ inputPdb   = sys.argv[2]
 outputPdb  = sys.argv[3]
 
 check_consistent(inputFasta,inputPdb)
-System("%s/CSSR/CSSR %s %s %s.constraint"%(
+if not os.path.isfile(outputPdb+".dbn"):
+    System("%s/CSSR/CSSR %s %s %s.constraint"%(
         rootdir,inputFasta,inputPdb,outputPdb))
-System("%s/ViennaRNA/src/bin/RNAfold -i %s --noPS --constraint %s.constraint --enforceConstraint |head -2 |tail -1|grep -ohP '^\\S+'> %s.dbn"%(
+    System("%s/ViennaRNA/src/bin/RNAfold -i %s --noPS --constraint %s.constraint --enforceConstraint |head -2 |tail -1|grep -ohP '^\\S+'> %s.dbn"%(
         rootdir,inputFasta,outputPdb,outputPdb))
-System("%s/FLORA %s %s %s %s.dbn 3"%(rootdir,inputFasta,inputPdb,outputPdb,outputPdb))
+energy_list=[]
+for m in [3,4,5]:
+#for m in [0,1,2,3,4,5,6,7]:
+    if not os.path.isfile("%s.%d"%(outputPdb,m)):
+        System("%s/FLORA %s %s %s.%d %s.dbn %d"%(rootdir,inputFasta,inputPdb,outputPdb,m,outputPdb,m))
+    if os.path.isfile("%s.%d"%(outputPdb,m)):
+        cmd="%s/dfire_rna/bin/DFIRE_RNA %s.%d"%(rootdir,outputPdb,m)
+        p=subprocess.Popen(cmd.split(), stdout=subprocess.PIPE)
+        stdout,stderr=p.communicate()
+        energy_list.append((float(stdout.decode().split()[1]),m))
+energy_list.sort()
+m=energy_list[0][1]
+System("cp %s.%d %s"%(outputPdb,m,outputPdb))
