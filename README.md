@@ -23,6 +23,8 @@ cd ..
 
 ## Usage ##
 
+### 1. Loop modeling ###
+
 To see the help menu:
 ```
 ./FLORA.py
@@ -40,7 +42,7 @@ To specify secondary structure in dot-bracket format:
 ```
 Here, input.dbn should have only one line, where unpaired nucleotides are represented by '.', while paired nucleotides are represented by '(' or ')'.
 
-## Full-atomic refinement ##
+### 2. Full-atomic refinement ###
 
 To just perform full-atomic structure refinement without loop modeling:
 ```bash
