@@ -5,7 +5,7 @@ Reconstruct missing nucleotides in the input RNA 3D structure.
 ## Installation ##
 
 ```
-make FLORA
+make
 
 cd CSSR
 make CSSR
