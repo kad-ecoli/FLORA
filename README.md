@@ -39,3 +39,14 @@ To specify secondary structure in dot-bracket format:
 ./FLORA input.fasta input.pdb output.pdb input.dbn 3
 ```
 Here, input.dbn should have only one line, where unpaired nucleotides are represented by '.', while paired nucleotides are represented by '(' or ')'.
+
+## Full-atomic refinement ##
+
+To just perform full-atomic structure refinement without loop modeling:
+```bash
+./Arena2 input.pdb output.pdb
+```
+
+## Citation ##
+Junzhe Guoa, Lydia Freddolino and Chengxin Zhang (2025)
+"FLORA: fast and accurate full-atomic loop modeling of RNA structures."
